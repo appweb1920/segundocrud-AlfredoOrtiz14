@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\piezas;
 
 class PiezasController extends Controller
 {
@@ -13,7 +14,8 @@ class PiezasController extends Controller
      */
     public function index()
     {
-        //
+        $p = piezas::all();
+        return view('welcome')->with('piezas', $p);
     }
 
     /**
@@ -34,7 +36,14 @@ class PiezasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pieza = new piezas;
+        $pieza->nombre = $request->nombre;
+        $pieza->descripcion = $request->descripcion;
+        $pieza->cantidad = $request->cantidad;
+        $pieza->costo = $request->costo;
+        $pieza->save();
+
+        return redirect('/');
     }
 
     /**
