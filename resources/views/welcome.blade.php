@@ -6,7 +6,14 @@
 
         <title>Refaccionaria</title>
         <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" rel="stylesheet">
-
+        <style>
+        a{
+            color: tomato;
+        }
+        a:hover{
+            color: tomato;
+        }
+        </style>
         
     </head>
     <body>
@@ -16,13 +23,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Inicio</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-
             </ul>
         </div>
     </nav>
@@ -61,7 +61,7 @@
         <thead>
             <tr class="table-primary">
             <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
+            <th scope="col">Descripción</th>
             <th scope="col">Cantidad</th>
             <th scope="col">Costo</th>
             <th scope="col"></th>
@@ -76,8 +76,8 @@
                 <td>{{$p->cantidad}}</td>
                 <td>{{$p->costo}}</td>
                 <td>
-                <a href="/editaPunto/{{$p->id}}">Editar</a>
-                <a href="/borraPunto/{{$p->id}}">Borrar</a>
+                <a href="/editaPieza/{{$p->id}}">Editar</a>
+                <a href="/borraPieza/{{$p->id}}">Borrar</a>
                 </td>
                 </tr>
                 @endforeach

@@ -18,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 });*/
 Route::get('/', 'PiezasController@index');
 Route::post('/nuevaPieza', 'PiezasController@store');
+Route::get('/editaPieza/{id}', 'PiezasController@show');
+Route::post('/edicionPieza', 'PiezasController@actualiza');
+Route::get('/borraPieza/{id}', 'PiezasController@destroy');

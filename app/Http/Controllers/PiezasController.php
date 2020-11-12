@@ -54,7 +54,10 @@ class PiezasController extends Controller
      */
     public function show($id)
     {
-        //
+        //buscar el dato
+        $pieza = piezas::find($id);
+        //pasarlo a la vista
+        return view('actualizaPieza')->with('pieza', $pieza);
     }
 
     /**
@@ -80,6 +83,22 @@ class PiezasController extends Controller
         //
     }
 
+
+    public function actualiza(Request $request)
+    {
+        $pieza = piezas::find($request->id);
+        if(!is_null($pieza))
+        {
+            $pieza->nombre = $request->nombre;
+            $pieza->descripcion = $request->descripcion;
+            $pieza->cantidad = $request->cantidad;
+            $pieza->costo = $request->costo;
+            $pieza->save();   
+        }
+        return redirect('/');
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -88,6 +107,8 @@ class PiezasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pieza = piezas::find($id);
+        $pieza->delete();
+        return redirect('/');
     }
 }
